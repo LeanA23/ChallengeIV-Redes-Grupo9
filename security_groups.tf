@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_http_ssh" {
   name        = "allow_http_ssh"
   description = "Permite HTTP y SSH"
-  vpc_id      = aws_vpc.main1.id
+  vpc_id      = var.vpc1_id
 
   ingress {
     description = "SSH from Anywere"
@@ -32,3 +32,4 @@ resource "aws_security_group" "allow_http_ssh" {
   }
 }
 
+#Se dejo un solo security group con dos reglas ingress HTTP y ssh)

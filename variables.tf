@@ -15,7 +15,7 @@ variable "subnet1_zone_1a" {
 }
 
 variable "ami_id" {
-  description = "ID de la AMI par la instancia EC2"
+  description = "ID de la AMI par la instancia EC2" 
   type = string
 }
 
@@ -28,3 +28,5 @@ variable "instance_type" {
   description = "Tipo de instancia utilizada para laboratorio"
   type = string
 }
+
+#Se eliminaron las variables innecesarias
