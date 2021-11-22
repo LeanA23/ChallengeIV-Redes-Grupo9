@@ -1,14 +1,6 @@
-resource "aws_vpc" "main1" {
-  cidr_block           = var.vpc_cidr
-  enable_dns_hostnames = true
-  tags = {
-    "Name" = "Main 1 VPC"
-  }
-}
-
 resource "aws_subnet" "subnet1_G9" {
   vpc_id                  = var.vpc1_id
-  cidr_block              = "172.16.0.9/28"
+  cidr_block              = "172.16.9.0/28"
   map_public_ip_on_launch = true
 
   availability_zone = var.subnet1_zone_1a
@@ -17,8 +9,9 @@ resource "aws_subnet" "subnet1_G9" {
     "Name" = "Subnet 1 | Main 1"
   }
 }
+
 resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.main1.id
+  vpc_id = var.vpc1_id
 
   tags = {
     "Name" = "Gateway Main 1"
@@ -26,10 +19,10 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_route_table" "r" {
-  vpc_id = aws_vpc.main1.id
+  vpc_id = var.vpc1_id
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.gw.id
+    gateway_id = var.internet_gateway_id
   }
 }
 

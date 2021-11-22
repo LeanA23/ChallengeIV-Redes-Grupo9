@@ -2,10 +2,6 @@ variable "region" {
   description = "Region permitida en AWS"
 }
 
-variable "vpc_cidr" {
-  description = "VPC Main 1 CIDR"
-}
-
 variable "vpc1_id" {
   description = "ID de la VPC del lab"
 }
@@ -14,20 +10,12 @@ variable "internet_gateway_id" {
   description = "ID del IGW del lab"
 }
 
-variable "subnet1_cidr" {
-  description = "Subnet 1 CIDR"
-}
-
 variable "subnet1_zone_1a" {
   description = "Zone 1a - Subnet 1"
 }
+
 variable "ami_id" {
   description = "ID de la AMI par la instancia EC2"
-  type = string
-}
-
-variable "subnet1_private_ip" {
-  description = "Subnet 1 Private IP"
   type = string
 }
 
